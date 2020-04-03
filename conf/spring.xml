@@ -35,7 +35,7 @@
 	
 	<!-- 管理mybatis操作数据库的会话对象SqlSession -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!-- 设置mybatis核心配置文件的路径 -->
+		<!-- 设置mybatis核心配置文件的路径 --> 
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 		<!-- 设置数据源 -->
 		<property name="dataSource" ref="dataSource"></property>
@@ -45,7 +45,7 @@
 		<property name="mapperLocations" value="classpath:com/hr/ssm/mapper/*.xml"></property>
 	</bean>
 	
-	<!--  -->
+	<!-- 在所设置的包下，将所有的接口生成动态代理实现类，并由spring容器管理 --> 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.hr.ssm.mapper"></property>
 	</bean>
