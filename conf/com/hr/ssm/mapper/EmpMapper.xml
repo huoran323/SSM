@@ -6,10 +6,42 @@
 <!-- 接口全限定名要与映射文件的namespace保持一致 -->
 <mapper namespace="com.hr.ssm.mapper.EmpMapper">
 	
-	<resultMap type="Emp" id="empMap"></resultMap>
+	<resultMap type="Emp" id="empMap">
+		<id column="eid" property="eid"/>
+		<result column="ename" property="ename"/>
+		<result column="age" property="age"/>
+		<result column="sex" property="sex"/>
+		<association property="dept" javaType="Dept">
+			<id column="did" property="did"/>
+			<result column="dname" property="dname"/>
+		</association>
+	</resultMap>
 	<!-- //获取所有的员工信息 List<Emp> getAllEmp(); -->
-	<select id="getAllEmp" resultMap="empMap">
-		
+	<select id="getAllEmp" resultMap="empMap" >
+		select e.eid,e.ename,e.age,e.sex,d.did,d.dname 
+		from emp e
+		left join
+		dept d
+		on e.did = d.did
 	</select>
 	
+	<!-- 根据eid获取员工信息 Emp getEmpByEid(String eid); -->
+	<select id="getEmpByEid" resultMap="empMap">
+		select e.eid,e.ename,e.age,e.sex,d.did,d.dname 
+		from emp e
+		left join
+		dept d
+		on e.did = d.did
+		where e.eid = #{eid}
+	</select>
+	
+	<!-- 修改员工信息 void updateEmp(Emp emp); -->
+	<update id="updateEmp">
+		update emp set 
+		ename = #{ename},
+		age = #{age},
+		sex = #{sex},
+		did = #{dept.did}
+		where eid = #{eid}
+	</update>
 </mapper>

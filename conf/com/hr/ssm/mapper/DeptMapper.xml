@@ -6,6 +6,9 @@
 <!-- 接口全限定名要与映射文件的namespace保持一致 -->
 <mapper namespace="com.hr.ssm.mapper.DeptMapper">
 	
-	
+	<!-- 获取所有的部门信息 List<Dept> getAllDept(); -->
+	<select id="getAllDept" resultType="Dept">
+		select did, dname from dept
+	</select>
 	
 </mapper>
