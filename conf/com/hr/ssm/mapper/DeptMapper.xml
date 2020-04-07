@@ -4,9 +4,8 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 接口全限定名要与映射文件的namespace保持一致 -->
-<mapper namespace="com.hr.ssm.mapper.EmpMapper">
+<mapper namespace="com.hr.ssm.mapper.DeptMapper">
 	
-	<!-- //获取所有的员工信息 List<Emp> getAllEmp(); -->
-	<select id="getAllEmp" resultType=""></select>
+	
 	
 </mapper>
