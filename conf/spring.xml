@@ -12,14 +12,14 @@
 		<!-- 通过注解的类型进行排除 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	
+	 
 	<!-- 引入资源文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	
 	<!-- 管理数据源 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="driverClassName" value="${jdbc.driver}"></property>
-		<property name="url" value="${jdbc.url}"></property>
+		<property name="url" value="${jdbc.url}"></property> 
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
