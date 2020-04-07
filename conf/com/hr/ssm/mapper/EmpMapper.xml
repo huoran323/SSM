@@ -6,7 +6,10 @@
 <!-- 接口全限定名要与映射文件的namespace保持一致 -->
 <mapper namespace="com.hr.ssm.mapper.EmpMapper">
 	
+	<resultMap type="Emp" id="empMap"></resultMap>
 	<!-- //获取所有的员工信息 List<Emp> getAllEmp(); -->
-	<select id="getAllEmp" resultType=""></select>
+	<select id="getAllEmp" resultMap="empMap">
+		
+	</select>
 	
 </mapper>
